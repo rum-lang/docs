@@ -1,7 +1,1 @@
 **/.vscode/
-_sources/
-_static/
-*.html
-*.js
-*.inv
-.buildinfo

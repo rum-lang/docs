@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Examples &#8212; Rum  documentation</title>
+    <link rel="stylesheet" href="_static/rumdoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <script src="_static/sidebar.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="prev" title="1. Introduction" href="introduction.html" />
+    
+    
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="1. Introduction"
+             accesskey="P">previous</a> |</li>
+    
+    <li><a href="https://rum-lang.github.io/">Rum</a> &#187;</li>
+    
+    <a href="index.html">Rum  documentation</a> &#187;
+    
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">4. </span>Examples</a></li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="examples">
+<h1><span class="section-number">4. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hello-world">
+<h2><span class="section-number">4.1. </span>Hello, World!<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>main = do
+    printLn &#39;Hello, World!&#39;
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="arrays-for-loops-and-strings">
+<h2><span class="section-number">4.2. </span>Arrays, for loops, and strings<a class="headerlink" href="#arrays-for-loops-and-strings" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>main = do
+    result =
+        string::new
+    nums =
+        [0, 1, ..50]
+
+    for num in nums do
+        result.push string::interpolate(nums, &#39; &#39;)
+
+    printLn result
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="fizz-buzz-v1">
+<h2><span class="section-number">4.3. </span>Fizz-Buzz (v1)<a class="headerlink" href="#fizz-buzz-v1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>fizzBuzz n = n
+    | n % 15 is 0 =&gt; &quot;FizzBuzz&quot;
+    | n % 3 is 0  =&gt; &quot;Fizz&quot;
+    | n % 5 is 0  =&gt; &quot;Buzz&quot;
+    | else        =&gt; n
+
+main =
+    printLn fizzBuzz [0..100]
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="fizz-buzz-v2">
+<h2><span class="section-number">4.4. </span>Fizz-Buzz (v2)<a class="headerlink" href="#fizz-buzz-v2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>main =
+    printLn n
+        | n % 15 is 0 =&gt; &quot;FizzBuzz&quot;
+        | n % 3 is 0  =&gt; &quot;Fizz&quot;
+        | n % 5 is 0  =&gt; &quot;Buzz&quot;
+        | else        =&gt; n
+      where
+        n = [0..100]
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. Examples</a><ul>
+<li><a class="reference internal" href="#hello-world">4.1. Hello, World!</a></li>
+<li><a class="reference internal" href="#arrays-for-loops-and-strings">4.2. Arrays, for loops, and strings</a></li>
+<li><a class="reference internal" href="#fizz-buzz-v1">4.3. Fizz-Buzz (v1)</a></li>
+<li><a class="reference internal" href="#fizz-buzz-v2">4.4. Fizz-Buzz (v2)</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="previous chapter"><span class="section-number">1. </span>Introduction</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/examples.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="1. Introduction"
+             >previous</a> |</li>
+    
+    <li><a href="https://rum-lang.github.io/">Rum</a> &#187;</li>
+    
+    <a href="index.html">Rum  documentation</a> &#187;
+    
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">4. </span>Examples</a></li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="copyright.html">Copyright</a> 2020, eitasuka.
+    <br />
+
+    Last updated on Jun 11, 2020.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.0.
+    </div>
+
+  </body>
+</html>

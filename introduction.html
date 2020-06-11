@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Introduction &#8212; Rum  documentation</title>
+    <link rel="stylesheet" href="_static/rumdoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <script src="_static/sidebar.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="4. Examples" href="examples.html" />
+    <link rel="prev" title="The Rum Programming Language Specification" href="index.html" />
+    
+    
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="examples.html" title="4. Examples"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="The Rum Programming Language Specification"
+             accesskey="P">previous</a> |</li>
+    
+    <li><a href="https://rum-lang.github.io/">Rum</a> &#187;</li>
+    
+    <a href="index.html">Rum  documentation</a> &#187;
+    
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span>Introduction</a></li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>This is the specification for Rum, a lightweight and performant general-purpose scripting programming language designed to
+harness the powerful ideals of functional programming, without the learning curve.</p>
+</div>
+<div class="section" id="conformance">
+<h1><span class="section-number">2. </span>Conformance<a class="headerlink" href="#conformance" title="Permalink to this headline">¶</a></h1>
+<p>An implementation of Rum is consisidered conforming when it:</p>
+<ul class="simple">
+<li><p>correctly handles all types, values, and functions, and all program syntax and semantics as described in this specification;</p></li>
+<li><p>interprets the source code input in conformance with the latest Unicode Standard.</p></li>
+</ul>
+</div>
+<div class="section" id="grammars">
+<h1><span class="section-number">3. </span>Grammars<a class="headerlink" href="#grammars" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="context-free-grammars">
+<h2><span class="section-number">3.1. </span>Context-Free Grammars<a class="headerlink" href="#context-free-grammars" title="Permalink to this headline">¶</a></h2>
+<p><em>Context-free grammars</em> consist of a number of <em>productions</em>. Each production has a symbol called a <em>nonterminal</em> as its <em>left-hand side</em>,
+and a sequence of one or more nonterminal and <em>terminal</em> symbols as its <em>right-hand side</em>. For each grammar, the terminal symbols are
+drawn from a specified <em>alphabet</em>.</p>
+<p>Starting from a sentence consisting of a single distinguished nonterminal, called the <em>goal symbol</em>, a given context-free grammar specifies
+a <em>language</em>, namely, the set of possible sequences of terminal symbols that can result from repeatedly replacing any nonterminal in the sequence
+with a right-hand side of a production for which the nonterminal is the left-hand side.</p>
+</div>
+<div class="section" id="grammar-notation">
+<h2><span class="section-number">3.2. </span>Grammar Notation<a class="headerlink" href="#grammar-notation" title="Permalink to this headline">¶</a></h2>
+<p>Terminal symbols are shown in <code class="code docutils literal notranslate"><span class="pre">fixed</span> <span class="pre">width</span></code> font. Nonterminal symbols are shown in <em>italic</em> type.
+The definition of a nonterminal is stated by the name of the nonterminal, a colon, and one or more indented
+lines representing forms of the nonterminal.</p>
+<p>For example:</p>
+<blockquote>
+<div><dl class="simple">
+<dt><em>IfThenStatement:</em></dt><dd><p><em>if ( Expression ) Statement</em></p>
+</dd>
+</dl>
+</div></blockquote>
+<p>States that the nonterminal <em>IfThenStatement</em> represents:</p>
+<ul class="simple">
+<li><p>The token <em>if</em>;</p></li>
+<li><p>A <em>left parenthesis token</em>;</p></li>
+<li><p>An <em>Expression</em>;</p></li>
+<li><p>A <em>right parenthesis token</em>;</p></li>
+<li><p>A <em>Statement</em>.</p></li>
+</ul>
+<p>In that order.</p>
+<p>The syntax <em>{x}</em> on the right-hand side of a production denotes zero or more occurrences of <em>x</em>.</p>
+<p>For example:</p>
+<blockquote>
+<div><dl class="simple">
+<dt><em>ArgumentList:</em></dt><dd><p><em>Argument {, Argument}</em></p>
+</dd>
+</dl>
+</div></blockquote>
+<p>States that an <em>ArgumentList</em> consists of:</p>
+<ul class="simple">
+<li><p>An <em>Argument</em>;</p></li>
+<li><p>Zero or more occurrences of a comma and then an <em>Argument</em>.</p></li>
+</ul>
+<p>As such, an <em>ArgumentList</em> may contain any positive number of arguments.</p>
+<p>The syntax <em>[x]</em> on the right-hand side of a production denotes zero or one occurrences of <em>x</em>,
+making <em>x</em> an <em>optional symbol</em>. As such,</p>
+<blockquote>
+<div><dl class="simple">
+<dt><em>BreakStatement:</em></dt><dd><p><em>break [Identifier]</em></p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Is equivalent to:</p>
+<blockquote>
+<div><dl class="simple">
+<dt><em>BreakStatement:</em></dt><dd><p><em>break</em>
+<em>break Identifier</em></p>
+</dd>
+</dl>
+</div></blockquote>
+<p>The phrase <em>(one of)</em> on the right-hand side of a production denotes that each of the symbols on
+the following line(s) is an alternative definition. As such,</p>
+<blockquote>
+<div><dl class="simple">
+<dt><em>ZeroToThree:</em></dt><dd><p><em>(one of)</em>
+<em>0 1 2 3</em></p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Is equivalent to:</p>
+<blockquote>
+<div><dl class="simple">
+<dt><em>ZeroToThree:</em></dt><dd><p><em>0
+1
+2
+3</em></p>
+</dd>
+</dl>
+</div></blockquote>
+<p>When an alternative in a production appears to be a token, it represents the sequence of characters
+that would make up the token. As such,</p>
+<blockquote>
+<div><dl class="simple">
+<dt><em>BooleanLiteral:</em></dt><dd><p><em>(one of)</em>
+<em>true false</em></p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Is equivalent to:</p>
+<blockquote>
+<div><dl class="simple">
+<dt><em>BooleanLiteral:</em></dt><dd><p><em>t r u e
+f a l s e</em></p>
+</dd>
+</dl>
+</div></blockquote>
+<p>The phrase <em>but not</em> on the right-hand side of a production denotes that the following expansions
+are excluded from the possible expansion. As such,</p>
+<blockquote>
+<div><dl class="simple">
+<dt><em>Identifier:</em></dt><dd><p><em>IdentifierChars but not a Keyword or BooleanLiteral</em></p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Defines an <em>Identifier</em> as an <em>IdentifierChars</em>, unless those <em>IdentifierChars</em> are equivalent to
+a token equal to a <em>Keyword</em> or a <em>BooleanLiteral</em>.</p>
+<p>Finally, some nonterminals are defined by a phrase, where it would be impractical to list all of the alternatives.
+For example:</p>
+<blockquote>
+<div><dl class="simple">
+<dt><em>RawInputCharacter:</em></dt><dd><p><em>any Unicode character</em></p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. Introduction</a></li>
+<li><a class="reference internal" href="#conformance">2. Conformance</a></li>
+<li><a class="reference internal" href="#grammars">3. Grammars</a><ul>
+<li><a class="reference internal" href="#context-free-grammars">3.1. Context-Free Grammars</a></li>
+<li><a class="reference internal" href="#grammar-notation">3.2. Grammar Notation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">The Rum Programming Language Specification</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="examples.html"
+                        title="next chapter"><span class="section-number">4. </span>Examples</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/introduction.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="examples.html" title="4. Examples"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="The Rum Programming Language Specification"
+             >previous</a> |</li>
+    
+    <li><a href="https://rum-lang.github.io/">Rum</a> &#187;</li>
+    
+    <a href="index.html">Rum  documentation</a> &#187;
+    
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span>Introduction</a></li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="copyright.html">Copyright</a> 2020, eitasuka.
+    <br />
+
+    Last updated on Jun 11, 2020.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.0.
+    </div>
+
+  </body>
+</html>
